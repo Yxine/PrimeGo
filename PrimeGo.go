@@ -15,11 +15,6 @@ import (
 
 func main() {
 
-	/*
-		MUST READ:
-		https://stackoverflow.com/questions/2385909/what-would-be-the-fastest-method-to-test-for-primality-in-java
-	*/
-
 	fmt.Println("PrimeGo by Larin Alexsandr v. 2018.8.20")
 	fmt.Println("alexsandr@larin.name")
 	fmt.Println()
