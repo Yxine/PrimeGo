@@ -15,8 +15,9 @@ import (
 
 func main() {
 
-	fmt.Println("PrimeGo by Larin Alexsandr v. 2018.8.20")
+	fmt.Println("PrimeGo by Larin Alexsandr v. 2018.8.25")
 	fmt.Println("alexsandr@larin.name")
+	fmt.Println("https://computerraru.ru")
 	fmt.Println()
 
 	if len(os.Args) != 3 {
@@ -27,6 +28,11 @@ func main() {
 	n := os.Args[2]
 	if !IsInteger(n) {
 		PrintError("Второй аргумент должен быть числом")
+		return
+	}
+
+	if !Pretest() {
+		PrintError("Тестирование не пройдено")
 		return
 	}
 
@@ -47,6 +53,18 @@ func main() {
 // JSONSaveStruct is ...
 type JSONSaveStruct struct {
 	Divider string
+}
+
+// Pretest is ...
+func Pretest() bool {
+	one := big.NewInt(1)
+	two := big.NewInt(2)
+	p, _ := new(big.Int).SetString("1277", 10)
+	//p2 := new(big.Int).Mul(p, two)
+	pow := new(big.Int).Exp(two, p, nil)
+	m := new(big.Int).Sub(pow, one)
+	n1277, _ := new(big.Int).SetString("2601983048666099770481310081841021384653815561816676201329778087600902014918340074503059860433081046210605403488570251947845891562080866227034976651419330190731032377347305086443295837415395887618239855136922452802923419286887119716740625346109565072933087221327790207134604146257063901166556207972729700461767055550785130256674608872183239507219512717434046725178680177638925792182271", 10)
+	return m.Cmp(n1277) == 0
 }
 
 // LoadSaveFromFile is ...
@@ -217,27 +235,15 @@ func FactorNumber(n string) {
 	c := 0
 
 	for {
-
 		c++
-
 		divider = new(big.Int).Add(divider, two)
-
 		if c%98765432 == 0 {
-
 			if divider.Cmp(p05) == 1 {
 				fmt.Println("Расчет окончен")
 				return
 			}
-
 			elapsed := time.Since(start)
-
-			//dfloat := BigIntToFloat64(divider)
-
-			//fract := FloatToString(dfloat / p05)
-
 			bits := FloatToString(BigIntLog2(divider))
-
-			//fmt.Println("Претендент " + d.String() + ", " + elapsed.String() + ", " + fract + ", " + bits)
 			fmt.Println("Претендент " + divider.String() + ", " + elapsed.String() + ", " + bits)
 			start = time.Now()
 			c = 0
@@ -257,7 +263,6 @@ func FactorNumber(n string) {
 		r := new(big.Int).Mod(prime, divider)
 		if r.Cmp(zero) == 0 {
 			SaveDividerToFile(prime, zero, divider, "")
-
 		}
 
 	}
@@ -273,10 +278,7 @@ func FactorMersenne(n string) {
 	zero := big.NewInt(0)
 	one := big.NewInt(1)
 	two := big.NewInt(2)
-	p, err := new(big.Int).SetString(n, 10)
-	if !err {
-		// nop
-	}
+	p, _ := new(big.Int).SetString(n, 10)
 	p2 := new(big.Int).Mul(p, two)
 	pow := new(big.Int).Exp(two, p, nil)
 	m := new(big.Int).Sub(pow, one)
