@@ -2,9 +2,11 @@
 
 ## Информация
 
-Факторизация чисел и кандидатов в Мерсенны на языке Go.
+Факторизация чисел и кандидатов в Мерсенны на языке [Go](https://golang.org).
 
 E-mail: alexsandr@larin.name
+
+WWW: https://computerraru.ru
 
 ## Запуск программы
 
@@ -14,7 +16,7 @@ PrimeGo.exe number `616318177`
 
 PrimeGo.exe mersenne `1277`
 
-## MUST READ
+## Must read
 
 https://stackoverflow.com/questions/2385909/what-would-be-the-fastest-method-to-test-for-primality-in-java
 
@@ -24,6 +26,8 @@ https://stackoverflow.com/questions/2385909/what-would-be-the-fastest-method-to-
 
 - Go `1.10.3`
 - Pretests
+- Коментарии к коду
+- Оптимизация
 
 **2018.8.20**
 
