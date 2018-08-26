@@ -60,7 +60,6 @@ func Pretest() bool {
 	one := big.NewInt(1)
 	two := big.NewInt(2)
 	p, _ := new(big.Int).SetString("1277", 10)
-	//p2 := new(big.Int).Mul(p, two)
 	pow := new(big.Int).Exp(two, p, nil)
 	m := new(big.Int).Sub(pow, one)
 	n1277, _ := new(big.Int).SetString("2601983048666099770481310081841021384653815561816676201329778087600902014918340074503059860433081046210605403488570251947845891562080866227034976651419330190731032377347305086443295837415395887618239855136922452802923419286887119716740625346109565072933087221327790207134604146257063901166556207972729700461767055550785130256674608872183239507219512717434046725178680177638925792182271", 10)
@@ -168,9 +167,7 @@ func FactorNumber(n string) {
 	six := big.NewInt(6)
 	prime, _ := new(big.Int).SetString(n, 10)
 	p05 := new(big.Int).Sqrt(prime)
-	//p05float := BigIntToFloat64(p05)
 	p05bits := BigIntLog2(p05)
-	//counter := 0
 	divider := LoadSaveFromFile(prime.String() + ".json")
 
 	fmt.Println("Предварительные вычисления")
@@ -349,3 +346,54 @@ func FactorMersenne(n string) {
 	}
 
 }
+
+/*
+
+func FloatToString(input_num float64) string {
+	//return strconv.FormatFloat(input_num, 'f', -1, 64)
+	return strconv.FormatFloat(input_num, 'f', 16, 64)
+}
+
+func yglog2(x *big.Int) int {
+	i := 0
+	t := big.NewInt(2)
+	for {
+		x = new(big.Int).Div(x, t)
+		i++
+		if x.Cmp(big.NewInt(1)) == 0 {
+			return i
+		}
+	}
+}
+
+func bigintlog2(b *big.Int) float64 {
+	f, _ := strconv.ParseFloat(b.String(), 64)
+	return math.Log2(f)
+}
+
+type SavedK struct {
+	K string
+}
+
+func loadfromfile(f string) *big.Int {
+	file, err := os.Open(f)
+	if err != nil {
+		return big.NewInt(0)
+	}
+	defer file.Close()
+	data := make([]byte, 64)
+	for {
+		n, err := file.Read(data)
+		if err == io.EOF {
+			break
+		}
+		j := string(data[:n])
+		var savedk SavedK
+		json.Unmarshal([]byte(j), &savedk)
+		p, _ := new(big.Int).SetString(savedk.K, 10)
+		return p
+	}
+	return big.NewInt(0)
+}
+
+*/

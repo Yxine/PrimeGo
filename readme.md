@@ -1,18 +1,18 @@
 # PrimeGo
 
-## Информация
+## Intro
 
-Факторизация чисел и кандидатов в Мерсенны на языке [Go](https://golang.org).
+Factorization of natural numbers and Mersenne candidates coded in [Go](https://golang.org).
 
 E-mail: alexsandr@larin.name
 
-WWW: https://computerraru.ru
+Web: https://computerraru.ru
 
-## Запуск программы
+## Launch
 
 PrimeGo.exe number `616318177`
 
-или
+or
 
 PrimeGo.exe mersenne `1277`
 
@@ -20,14 +20,14 @@ PrimeGo.exe mersenne `1277`
 
 https://stackoverflow.com/questions/2385909/what-would-be-the-fastest-method-to-test-for-primality-in-java
 
-## История выпусков
+## History
 
-**2018.8.25**
+**2018.8.26**
 
 - Go `1.10.3`
 - Pretests
-- Коментарии к коду
-- Оптимизация
+- Comments to code
+- Optimizations
 
 **2018.8.20**
 
